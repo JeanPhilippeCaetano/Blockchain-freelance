@@ -7,16 +7,7 @@ contract Transactions {
 
     uint funds;
 
-    // events 
-    event _getBalances(uint _balance,address _address);
-
-    event _getBalance(uint _balance);
-
-    event _getFunds(uint _fund);
-
-
-    function getBalance() public returns (uint256) {
-        emit _getBalance(address(this).balance);
+    function getBalance() public view returns (uint256) {
         return address(this).balance;
     }
 
@@ -40,13 +31,12 @@ contract Transactions {
         to.transfer(balances[to]);
     }
 
-    function getBalancesfromAddress(address _add) external _ownerOnly returns (uint) {
-        emit _getBalances(balances[_add], _add);
+    
+    function getBalancesfromAddress(address _add) external view _ownerOnly returns (uint) {
         return balances[_add];
     }
 
-    function getFunds() external _ownerOnly  returns(uint)  {
-        emit _getFunds(funds);
+    function getFunds() external _ownerOnly view returns(uint)  {
         return funds;
     }
 
