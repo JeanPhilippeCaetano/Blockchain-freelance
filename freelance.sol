@@ -2,9 +2,7 @@
 
 pragma solidity >=0.7.0 <0.9.0;
 
-import "hardhat/console.sol";
-
-contract User {
+contract Freelancer {
     event NewFreelancer(uint freelancerId, string name, string email, address wallet);
 
     struct Freelancer {
